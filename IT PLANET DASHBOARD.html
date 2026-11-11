@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT PLANET | Beyond the Technology</title>
+
+<style>
+:root {
+    --blue: #087cff;
+    --cyan: #00d9ff;
+    --dark: #050b18;
+    --card: #101d32;
+    --white: #ffffff;
+    --muted: #a9b7ca;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADER */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(5, 11, 24, 0.93);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0, 217, 255, .15);
+}
+
+.navbar {
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 155px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #d8e5f5;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+.contact-btn {
+    background: var(--blue);
+    padding: 11px 20px;
+    border-radius: 5px;
+    color: white !important;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    height: 100vh;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: #071326;
+}
+
+.hero-slides {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        rgba(3, 9, 23, .96),
+        rgba(3, 9, 23, .72),
+        rgba(3, 9, 23, .45)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    padding-top: 80px;
+}
+
+.hero-tag {
+    color: var(--cyan);
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 75px);
+    line-height: 1.12;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: var(--cyan);
+}
+
+.hero p {
+    font-size: 17px;
+    color: #d1dceb;
+    max-width: 620px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--blue);
+}
+
+.btn-outline {
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 124, 255, .3);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 100px 0;
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title small {
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin: 10px 0;
+}
+
+.section-title p {
+    color: var(--muted);
+    max-width: 650px;
+    margin: auto;
+}
+
+/* ABOUT */
+
+.about {
+    background: #091426;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(0,217,255,.25);
+}
+
+.about-text h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about-text h3 span {
+    color: var(--cyan);
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 17px;
+}
+
+.about-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.point {
+    padding: 14px;
+    background: rgba(0,124,255,.09);
+    border-left: 3px solid var(--cyan);
+    border-radius: 5px;
+}
+
+/* SERVICES */
+
+.services {
+    background: var(--dark);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: var(--card);
+    border: 1px solid rgba(0,217,255,.12);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.service-card:hover {
+    transform: translateY(-9px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 30px rgba(0,124,255,.13);
+}
+
+.service-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.service-info {
+    padding: 23px;
+}
+
+.service-info h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--cyan);
+}
+
+.service-info p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* PROJECTS */
+
+.projects {
+    background: #091426;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--card);
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+.project-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 35px 18px 18px;
+    background: linear-gradient(transparent, rgba(0,0,0,.95));
+}
+
+.project-caption h3 {
+    font-size: 18px;
+}
+
+.project-caption p {
+    font-size: 13px;
+    color: #c4d4e8;
+}
+
+/* WHY CHOOSE US */
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.why-card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border-bottom: 3px solid var(--blue);
+}
+
+.why-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    margin-bottom: 12px;
+    color: var(--cyan);
+}
+
+.why-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: linear-gradient(135deg, #071326, #0b2344);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 23px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(0,217,255,.2);
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.contact-item:hover {
+    background: rgba(0,124,255,.15);
+}
+
+.contact-icon {
+    font-size: 28px;
+}
+
+.contact-item h3 {
+    font-size: 16px;
+    color: var(--cyan);
+}
+
+.contact-item p {
+    color: #c1cede;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #030814;
+    padding: 30px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+footer span {
+    color: var(--cyan);
+}
+
+/* WHATSAPP FLOAT */
+
+.whatsapp {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25d366;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    z-index: 999;
+    box-shadow: 0 5px 20px rgba(37,211,102,.35);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .service-grid,
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 650px) {
+    .navbar {
+        min-height: 70px;
+    }
+
+    .logo img {
+        width: 125px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: #071326;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero-content {
+        padding-top: 70px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .service-grid,
+    .project-grid,
+    .why-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    .about-points {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        height: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container navbar">
+
+        <!-- ADD YOUR LOGO HERE -->
+        <a href="#home" class="logo">
+            <img src="it logo.png" alt="IT PLANET Logo">
+        </a>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" onclick="closeMenu()">Home</a>
+            <a href="#about" onclick="closeMenu()">About Us</a>
+            <a href="#services" onclick="closeMenu()">Services</a>
+            <a href="#projects" onclick="closeMenu()">Projects</a>
+            <a href="#contact" class="contact-btn" onclick="closeMenu()">Contact Us</a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- HERO / BACKGROUND SLIDESHOW -->
+<section class="hero" id="home">
+
+    <div class="hero-slides">
+
+        <!-- CHANGE THESE BACKGROUND IMAGES -->
+        <div class="hero-slide active"
+        style="background-image:url('slide\ 1.jfif')"></div>
+
+        <div class="hero-slide"
+        style="background-image:url('slide\ 2.jfif')"></div>
+
+        <div class="hero-slide"
+        style="background-image:url('slide\ 3.jfif')"></div>
+        <div class="hero-slide"
+        style="background-image:url('images.jpg')"></div>
+        <div class="hero-slide"
+        style="background-image:url('slide\ 4.jfif')"></div>
+        <div class="hero-slide"
+        style="background-image:url('slide\ 6.jfif')"></div> 
+        <div class="hero-slide"
+        style="background-image:url('slie\ 5.jfif')"></div>
+
+
+
+    </div>
+
+    <div class="container hero-content">
+
+        <div class="hero-tag">WELCOME TO IT PLANET</div>
+
+        <h1>
+            Beyond the <span>Technology.</span><br>
+            Beyond the Limits.
+        </h1>
+
+        <p>
+            Technology is more than just machines and software.
+            It is about solving problems, creating opportunities
+            and making everyday life easier. At IT PLANET, we turn
+            technological ideas into practical solutions.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary">
+                Explore Our Services
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Get In Touch
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="container about-content">
+
+        <div class="about-image">
+            <!-- ADD YOUR COMPANY PHOTO HERE -->
+            <img src="it logo.png"
+            alt="IT PLANET Technology Work">
+        </div>
+
+        <div class="about-text">
+
+            <small style="color:var(--cyan);letter-spacing:3px;">
+                WHO WE ARE
+            </small>
+
+            <h3>
+                Technology with a <span>Purpose.</span>
+            </h3>
+
+            <p>
+                IT PLANET is a technology-focused initiative
+                built around innovation, creativity and practical
+                problem-solving. We believe technology should
+                make people's lives easier, businesses stronger
+                and communities more connected.
+            </p>
+
+            <p>
+                Our work brings together electronics, embedded
+                systems, artificial intelligence and software
+                development. We enjoy understanding technical
+                challenges, exploring new ideas and transforming
+                them into solutions that people can actually use.
+            </p>
+
+            <p>
+                Whether it is repairing an electronic device,
+                developing a smart system, solving a software
+                problem or building a digital platform, our goal
+                is to deliver meaningful technology solutions.
+            </p>
+
+            <div class="about-points">
+                <div class="point">✓ Practical Innovation</div>
+                <div class="point">✓ Creative Technology</div>
+                <div class="point">✓ Problem Solving</div>
+                <div class="point">✓ Continuous Learning</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-title">
+            <small>WHAT WE DO</small>
+            <h2>Our Technology Services</h2>
+            <p>
+                We combine technical knowledge, creativity and
+                innovation to provide solutions for real-world
+                technology challenges.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <img src="electronics.jpg"
+                alt="Electronic Repair">
+
+                <div class="service-info">
+                    <h3>Electronic Repair</h3>
+                    <p>
+                        We diagnose, maintain and repair electronic
+                        devices and equipment. Our focus is on
+                        identifying faults, restoring functionality
+                        and helping customers get more value from
+                        their devices.
+                    </p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="embedded.jpg"
+                alt="Embedded Systems">
+
+                <div class="service-info">
+                    <h3>Embedded Systems</h3>
+                    <p>
+                        We design smart electronic systems using
+                        microcontrollers, sensors, automation and
+                        connected devices. From smart parking to
+                        automated solutions, we turn ideas into
+                        working projects.
+                    </p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="ai .jpg"
+                alt="AI Prompting">
+
+                <div class="service-info">
+                    <h3>AI Prompting</h3>
+                    <p>
+                        We explore artificial intelligence through
+                        effective prompting, creative thinking and
+                        practical AI tools to support research,
+                        productivity, learning and problem-solving.
+                    </p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="repaire.jpg"
+                alt="Software Error Solutions">
+
+                <div class="service-info">
+                    <h3>Software Error Solutions</h3>
+                    <p>
+                        We help identify, troubleshoot and resolve
+                        software errors, installation problems,
+                        system issues and other technical challenges
+                        that affect computer performance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="developing.jpg"
+                alt="Software Development">
+
+                <div class="service-info">
+                    <h3>Software Development</h3>
+                    <p>
+                        We develop websites, applications and
+                        digital solutions that respond to real
+                        needs. Our work focuses on functionality,
+                        usability and reliable digital experiences.
+                    </p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="creativity.jfif"
+                alt="Technology Innovation">
+
+                <div class="service-info">
+                    <h3>Technology Innovation</h3>
+                    <p>
+                        We explore new technologies, experiment
+                        with creative ideas and develop practical
+                        approaches to modern technological
+                        challenges.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+
+    <div class="container">
+
+        <div class="section-title">
+            <small>OUR WORK</small>
+            <h2>Projects & Technology Showcase</h2>
+            <p>
+                Every project represents an idea, a challenge
+                and an opportunity to learn, create and innovate.
+                Explore some of our technology work.
+            </p>
+        </div>
+
+        <div class="project-grid">
+
+            <!-- REPLACE WITH YOUR OWN PROJECT PHOTOS -->
+
+            <div class="project-card">
+                <img src="reparing.jfif" alt="Project 1">
+                <div class="project-caption">
+                    <h3>Electronic Projects</h3>
+                    <p>Repair, electronics and practical solutions.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="systerm.jfif" alt="Project 2">
+                <div class="project-caption">
+                    <h3>Embedded Systems</h3>
+                    <p>Smart devices and automation projects.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="soft.jfif" alt="Project 3">
+                <div class="project-caption">
+                    <h3>Software Development</h3>
+                    <p>Digital platforms and applications.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="ai prompting.jfif" alt="Project 4">
+                <div class="project-caption">
+                    <h3>AI Technology</h3>
+                    <p>Artificial intelligence and prompting.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="soft faults.jfif" alt="Project 5">
+                <div class="project-caption">
+                    <h3>Computer Solutions</h3>
+                    <p>Software troubleshooting and maintenance.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="innovation.jfif" alt="Project 6">
+                <div class="project-caption">
+                    <h3>Innovation & Creativity</h3>
+                    <p>Ideas developed into practical solutions.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+
+    <div class="container">
+
+        <div class="section-title">
+            <small>OUR APPROACH</small>
+            <h2>Why IT PLANET?</h2>
+            <p>
+                We believe great technology starts with understanding
+                problems and having the courage to find better solutions.
+            </p>
+        </div>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <div class="why-icon">💡</div>
+                <h3>Innovation</h3>
+                <p>
+                    We welcome new ideas and explore better ways
+                    to use technology in everyday life.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon">⚙️</div>
+                <h3>Practical Solutions</h3>
+                <p>
+                    We focus on understanding technical challenges
+                    and developing solutions that work in practice.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon">🚀</div>
+                <h3>Continuous Growth</h3>
+                <p>
+                    Technology never stands still. We keep learning,
+                    improving and exploring new possibilities.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+            <small>LET'S CONNECT</small>
+            <h2>Have a Technology Challenge?</h2>
+            <p>
+                Do you have a project idea, a technical problem
+                or an opportunity to collaborate? We would be
+                happy to hear from you. Let's make technology work.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <a href="tel:+250796592582" class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <h3>Call Us</h3>
+                    <p>+250 796 592 582</p>
+                </div>
+            </a>
+
+            <a href="https://wa.me/250796592582"
+            target="_blank" class="contact-item">
+                <div class="contact-icon">💬</div>
+                <div>
+                    <h3>WhatsApp</h3>
+                    <p>Chat with IT PLANET</p>
+                </div>
+            </a>
+
+            <!-- ADD YOUR FACEBOOK PAGE URL -->
+            <a href="https://www.facebook.com/"
+            target="_blank" class="contact-item">
+                <div class="contact-icon">f</div>
+                <div>
+                    <h3>Facebook</h3>
+                    <p>IT PLANET</p>
+                </div>
+            </a>
+
+            <!-- ADD YOUR INSTAGRAM PROFILE URL -->
+            <a href="https://www.instagram.com/"
+            target="_blank" class="contact-item">
+                <div class="contact-icon">📸</div>
+                <div>
+                    <h3>Instagram</h3>
+                    <p>IT PLANET</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>
+            © <span id="year"></span> <span>IT PLANET</span>.
+            Beyond the Technology. All Rights Reserved.
+        </p>
+        <p style="margin-top:8px;">
+            Technology | Innovation | Creativity | Solutions
+        </p>
+    </div>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/250796592582"
+target="_blank" class="whatsapp" title="Chat with us">
+    ☎
+</a>
+
+<script>
+
+/* BACKGROUND SLIDESHOW */
+
+const slides = document.querySelectorAll(".hero-slide");
+let currentSlide = 0;
+
+function changeSlide() {
+
+    slides[currentSlide].classList.remove("active");
+
+    currentSlide = (currentSlide + 1) % slides.length;
+
+    slides[currentSlide].classList.add("active");
+}
+
+// Change background every 5 seconds
+setInterval(changeSlide, 5000);
+
+
+/* MOBILE NAVIGATION */
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("show");
+}
+
+
+/* AUTOMATIC COPYRIGHT YEAR */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
